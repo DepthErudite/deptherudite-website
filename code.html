@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渊博信息科技 | deptherudite</title>
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #0056b3;
+            --primary-hover-color: #004494;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --light-bg-color: #f8f9fa;
+            --border-color: #e9ecef;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover-color);
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background-color: var(--light-bg-color);
+            padding: 0.25rem;
+            border-radius: 20px;
+        }
+
+        .lang-switcher button {
+            background: transparent;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher button.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            text-align: center;
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #ffffff, var(--light-bg-color));
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* --- Services Section --- */
+        #services {
+            background-color: var(--bg-color);
+        }
+        #services .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--light-bg-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- About Section --- */
+        #about {
+            background-color: var(--light-bg-color);
+        }
+        #about .container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+        }
+        #contact .section-header {
+            margin-bottom: 2rem;
+        }
+        .contact-info {
+            font-size: 1.1rem;
+        }
+        .contact-info a {
+            font-weight: 600;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-color);
+            color: #ccc;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">渊博<span>.</span>信息科技</a>
+            <ul class="nav-links">
+                <li><a href="#hero" data-i18n="nav_home">首页</a></li>
+                <li><a href="#services" data-i18n="nav_services">服务</a></li>
+                <li><a href="#about" data-i18n="nav_about">关于</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">联系</a></li>
+                <li class="lang-switcher">
+                    <button id="lang-zh" class="active" onclick="setLanguage('zh')">中</button>
+                    <button id="lang-en" onclick="setLanguage('en')">EN</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <h1 data-i18n="hero_title">深度定制，智能驱动</h1>
+                <p data-i18n="hero_subtitle">渊博信息科技 专注于大语言模型微调与智能应用开发，为企业提供前沿的 AI 解决方案，释放数据潜能。</p>
+                <a href="#services" class="cta-button" data-i18n="hero_cta">探索我们的服务</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="services_title">核心服务</h2>
+                    <p data-i18n="services_subtitle">我们提供从模型到应用的全链路技术服务</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 data-i18n="service1_title">大语言模型微调</h3>
+                        <p data-i18n="service1_desc">基于开源或私有基础模型，结合行业特定数据，进行深度微调，打造符合业务场景的高性能专属模型。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-i18n="service2_title">智能应用软件开发</h3>
+                        <p data-i18n="service2_desc">将强大的大语言模型能力封装成易于集成的 API、智能客服、内容生成工具等，助力业务流程智能化升级。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-i18n="service3_title">AI 智能体构建</h3>
+                        <p data-i18n="service3_desc">设计并开发能够自主理解、规划、执行复杂任务的 AI 智能体，实现更高层次的自动化与智能决策。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 data-i18n="about_title">关于我们</h2>
+                <p data-i18n="about_desc">渊博信息科技 是一家专注于人工智能前沿技术的创新团队。我们深信，通过精湛的技术和对业务场景的深刻理解，能够将大语言模型的潜力转化为企业实实在在的价值。我们追求技术的深度与广度，致力于成为您最可靠的 AI 技术伙伴。</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="contact_title">联系我们</h2>
+                    <p data-i18n="contact_subtitle">让我们一起探讨如何用 AI 赋能您的业务</p>
+                </div>
+                <div class="contact-info">
+                    <p data-i18n="contact_email_label">商务合作：</p>
+                    <a href="mailto:yuanbo@deptherudite.com">yuanbo@deptherudite.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 渊博信息科技. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Internationalization ---
+        const translations = {
+            zh: {
+                nav_home: "首页",
+                nav_services: "服务",
+                nav_about: "关于",
+                nav_contact: "联系",
+                hero_title: "深度定制，智能驱动",
+                hero_subtitle: "渊博信息科技 专注于大语言模型微调与智能应用开发，为企业提供前沿的 AI 解决方案，释放数据潜能。",
+                hero_cta: "探索我们的服务",
+                services_title: "核心服务",
+                services_subtitle: "我们提供从模型到应用的全链路技术服务",
+                service1_title: "大语言模型微调",
+                service1_desc: "基于开源或私有基础模型，结合行业特定数据，进行深度微调，打造符合业务场景的高性能专属模型。",
+                service2_title: "智能应用软件开发",
+                service2_desc: "将强大的大语言模型能力封装成易于集成的 API、智能客服、内容生成工具等，助力业务流程智能化升级。",
+                service3_title: "AI 智能体构建",
+                service3_desc: "设计并开发能够自主理解、规划、执行复杂任务的 AI 智能体，实现更高层次的自动化与智能决策。",
+                about_title: "关于我们",
+                about_desc: "渊博信息科技 是一家专注于人工智能前沿技术的创新团队。我们深信，通过精湛的技术和对业务场景的深刻理解，能够将大语言模型的潜力转化为企业实实在在的价值。我们追求技术的深度与广度，致力于成为您最可靠的 AI 技术伙伴。",
+                contact_title: "联系我们",
+                contact_subtitle: "让我们一起探讨如何用 AI 赋能您的业务",
+                contact_email_label: "商务合作："
+            },
+            en: {
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_about: "About",
+                nav_contact: "Contact",
+                hero_title: "Deeply Customized, Intelligently Driven",
+                hero_subtitle: "Deptherudite focuses on large language model fine-tuning and intelligent application development, providing cutting-edge AI solutions for businesses to unlock data potential.",
+                hero_cta: "Explore Our Services",
+                services_title: "Core Services",
+                services_subtitle: "We provide end-to-end technical services from model to application",
+                service1_title: "LLM Fine-Tuning",
+                service1_desc: "Based on open-source or private foundation models, we perform deep fine-tuning with industry-specific data to create high-performance, exclusive models tailored to your business scenarios.",
+                service2_title: "Intelligent Application Development",
+                service2_desc: "We encapsulate the power of large language models into easy-to-integrate APIs, intelligent customer service systems, content generation tools, and more, helping to intelligently upgrade your business processes.",
+                service3_title: "AI Agent Construction",
+                service3_desc: "We design and develop AI agents capable of autonomously understanding, planning, and executing complex tasks, achieving a higher level of automation and intelligent decision-making.",
+                about_title: "About Us",
+                about_desc: "Deptherudite is an innovative team specializing in cutting-edge artificial intelligence technology. We firmly believe that through exquisite technology and a deep understanding of business scenarios, we can transform the potential of large language models into tangible value for enterprises. We pursue depth and breadth in technology and are committed to being your most reliable AI technology partner.",
+                contact_title: "Contact Us",
+                contact_subtitle: "Let's discuss how AI can empower your business",
+                contact_email_label: "Business Inquiry:"
+            }
+        };
+
+        let currentLang = localStorage.getItem('preferredLanguage') || 'zh';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            applyLanguage();
+            updateButtonStyles();
+        }
+
+        function applyLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            // Update logo text
+            const logo = document.querySelector('.logo');
+            if (currentLang === 'en') {
+                logo.innerHTML = 'deptherudite<span>.</span>tech';
+            } else {
+                logo.innerHTML = '渊博<span>.</span>信息科技';
+            }
+        }
+
+        function updateButtonStyles() {
+            document.getElementById('lang-zh').classList.toggle('active', currentLang === 'zh');
+            document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
+        }
+
+        // On page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
